@@ -1,3 +1,7 @@
+# custom bans
+*.pkl
+202303-calendar.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
