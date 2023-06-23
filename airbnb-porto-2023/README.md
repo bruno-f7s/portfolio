@@ -11,25 +11,25 @@ Table of Contents:
 
 ---
 ## 1. Requirements
-To be able to run the code on your own you will need the following software:
+To run the code you need the following software:
 - Python v.3+
 - Jupyter Notebook
 - Suggestion: Anaconda v.4+ since it has both in one suite.
 
-To run the code, you will also need to open unpack the zip file _../model/calendar.csv.gz_ in the same directory. 
+Additionally, you need to unpack the zip file _../model/calendar.csv.gz_ in the same directory. 
   
 ## 2. File Descriptions
-- airbnb-porto-2023-eda.ipynb: Jupyter Notebook, which contains the full code.
-- 202206-listings.csv: Snapshot of Airbnb listing's data from Q2 2022
-- 202209-listings.csv: Snapshot of Airbnb listing's data from Q3 2022
-- 202212-listings.csv: Snapshot of Airbnb listing's data from Q4 2022
-- 202303-listings.csv: Snapshot of Airbnb listing's data from Q1 2023
-- 202303-calendar.csv (obtained from zip): Snapshot of Airbnb activity's data from Q1 2022
+- _airbnb-porto-2023-eda.ipynb_: Jupyter Notebook, which contains the full code.
+- _202206-listings.csv_: Snapshot of Airbnb listing's data from Q2 2022
+- _202209-listings.csv_: Snapshot of Airbnb listing's data from Q3 2022
+- _202212-listings.csv_: Snapshot of Airbnb listing's data from Q4 2022
+- _202303-listings.csv_: Snapshot of Airbnb listing's data from Q1 2023
+- _202303-calendar.csv_: Snapshot of Airbnb activity's data from Q1 2022 (obtained from the zip file: _calendar.csv.gz_)
 
 ## 3. Data
-The data was obtained from the website <a href=http://insideairbnb.com/get-the-data/>Inside Airbnb</a> and is made of 4 CSV files which contains listing information and 1 CSV file with activity information. The listing files are the focus of the project while the calendar.csv was used just for a quality check.
+The data was obtained from the website <a href=http://insideairbnb.com/get-the-data/>Inside Airbnb</a> and it is made of 4 CSV files - which contains listing information - and 1 CSV file with activity information. The listing files are the focus of the project while the calendar.csv was used just for a quality check.
 
-The listing's data contains among others these columns:
+The listing's data contains, among others, these columns:
 - id
 - name
 - description
@@ -49,28 +49,30 @@ The listing's data contains among others these columns:
 The data dictionary of the columns can be found [here](https://docs.google.com/spreadsheets/d/1iWCNJcSutYqpULSQHlNyGInUvHg2BoUGoNRIGa6Szc4/edit#gid=1322284596).
 
 ### Limitations of the data
-Although there is relevant information available about the listings, there are still some features missing which may influence the analysis, especially when trying to predict the price, the occupancy or explaining causality for something we see in the data. The list is not exhaustive but gives an overview of these limitations:
-- This data is composed of snapshots quarterly, which means that numbers like availability rates can change over time.
-- Information about state (brand new/old) of the listing is not available.
+Although there is relevant information available about the listings, there are still some features missing which may influence the analysis, especially when trying to predict the price, the occupancy or explaining causality for something interesting we may see in the data. This list is not exhaustive but gives an overview of these limitations:
+- This data is composed of quarterly snapshots, which means that numbers like availability rates can change over time.
+- Information about state of the listing (brand new/used) is not available.
 - Size of the listing is not available.
 - Other subjective factors cannot be measured like decoration, natural light, overall attractiveness, etc.
 - Only the last 12 months of data were available.
 
 
 ## 4. Project Motivation
-This project was done as part of the curriculum of the [Udacity's Data Scientist Nanodegree](https://www.udacity.com/course/data-scientist-nanodegree--nd025). I decided to choose this project because of my personal motivations. I am natural from Porto, Portugal and I am interested in Airbnb market of that region. Since roughly 2015 the country has seen a dramatic increase in tourists and house prices. Then, in 2019 the COVID pandemic also hit the region hard and since 2022 things seem to be recovering. For these reasons I liked the context of the analysis.
+This project was done as part of the curriculum of the [Udacity's Data Scientist Nanodegree](https://www.udacity.com/course/data-scientist-nanodegree--nd025). I decided to choose this analyis due to various reasons:
+- I am natural from Porto, Portugal and I am interested in Airbnb market of that region.
+- Since roughly 2015 the country has seen a dramatic increase in tourists and house prices. Then, in 2019 the COVID pandemic also hit the region hard and since 2022 things seem to be recovering.
 
 The __main goals__ of this project were to investigate:
-1. How the number of listings, prices and overnights were evolving after the pandemic.
-2. How the occupancy rate is generally distributed - for example whether superhosts in general have higher occupancy rates.
+1. How the number of listings, prices and overnights was evolving after the pandemic.
+2. How the occupancy rate was generally distributed - for example whether superhosts in general had higher occupancy rates.
 3. Whether it was possible to create a predictive model for the price per night based on the available data. 
 
 
 ## 5. Summary of the Analysis
-As with many data analysis projects start, the first thing I wanted to see is how the data looks like: which portion of the data is missing, which columns hold important information or which not, and look at the distribution of the continuous variables. In this case, I was interested to see how the __price distribution__ looked like, since I was using it later as my target variable for the model and this was the image I got:
+Like many data analysis projects start, the first thing I wanted to see is how the data looks like: which portion of the data is missing, which columns hold important information or to look at the distribution of the continuous variables. In this case, I was interested to see how the __price distribution__ looked like, since I was using it later as my target variable for the model.
 ![Price density map](images/price_density_map.png)
 
-As one can see the distribution is so skewed to the right that the curve of the distribution is almost a straight line in the graphic. This is due to the fact that there are few, but very extreme values in this dataset - the so-called outliers. The highest price per night one could pay in Porto based on Q1 2023's data was $80100. I knew directly I needed to address this later and I also decided to use the median instead of the mean for the analyses as it is less sensitive to outliers.
+As one can see the distribution is so skewed to the right that the curve of the distribution is almost a straight line in the graphic. This is due to the fact that there are few, but very extreme values in this dataset - the so-called outliers. The highest price per night one could pay in Porto based on Q1 2023's data was $80100. I knew directly I needed to address this later and I also decided to use the median instead of the mean for the further analyses, as it is less sensitive to outliers.
 
 You may find more analyses like this in the [Jupyter notebook](https://github.com/bruno-f7s/portfolio/blob/main/airbnb-porto-2023/airbnb-porto-2023-eda.ipynb). Below, you can find a summary of the relevant findings related to the initial business questions.
 
@@ -79,13 +81,13 @@ The data I gathered goes from Q2 2022 until Q1 2023. This means 12 months of his
 
 ![Number of listings by period](images/bar_listings_period.png)
 
-Of course, we do not know the causes or if this trend was already there before, but looking at the data at hand we can see some optimism in the market. This is not valid for all cities of the Porto metropolitan area: some cities had a decrease in the number of offerings (more info in the Jupyter notebook).
+Of course, we do not know the causes for this or if the trend was already there before, but looking at the data at hand we can see some optimism in the market. This is not valid for all cities of the Porto metropolitan area: some cities had a decrease in the number of offerings (more info in the Jupyter notebook).
 
 Regarding the __occupancy rates__ the picture is a bit different:
 
 ![Occupancy rates by period](images/bar_occupancy.png)
 
-Looking at the graphic we see a decrease of the occupancy rates in the colder months, which is somewhat expected since most of the listings is probably dependent on tourism, which in this phase of the year generally decreases in the northern hemisphere. To evaluate if these numbers are high or not, more historical data would have been needed. Nevertheless, we can have an estimate based on statistic reports. The official  Portuguese tourism agency reports that the average occupancy rates for this region in 2018 was around 73% (for hotels), so this could be used as a rough estimate [source](https://travelbi.turismodeportugal.pt/alojamento/taxas-de-ocupacao-quartocama/). In the data I gathered, the mean value was 51%, which means that this value is still far behind the pre-pandemic numbers. 
+Looking at the graphic we see a decrease of the occupancy rates in the colder months, which is somewhat expected since most of the listings are likely dependent on tourism, which in this phase of the year generally decreases in the northern hemisphere. To evaluate if these numbers are high or not, more historical data would have been needed. Nevertheless, we can have an estimate based on statistic reports. The official  Portuguese tourism agency reports that the average occupancy rates for this region in 2018 was around 73% (for hotels), so this could be used as a rough estimate [source](https://travelbi.turismodeportugal.pt/alojamento/taxas-de-ocupacao-quartocama/). In the data I gathered, the mean value was 51%, which means that this value is still far behind the pre-pandemic numbers. 
 
 This distribution of the occupancy rates by period looks very similar across the different cities of the region:
 
