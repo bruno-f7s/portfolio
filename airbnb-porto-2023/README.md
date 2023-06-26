@@ -120,7 +120,7 @@ Another thing I thought it might be worth looking at, was if superhosts (which t
 
 ![occupancy rate by host by period](https://github.com/bruno-f7s/portfolio/assets/68636948/1a242dea-fd3c-4677-b759-9577899b5c7c)
 
-The table above shows some interesting information: In the colder months, when the occupancy rate is generally lower, the regular hosts had a higher average occupancy rate and in the higher season the superhosts actually had a higher average occupancy rate. It seems that as the occupancy rate increases, so the difference of the average occupancy rates between the two types of hosts increases. This trend of course cannot be validated using only this amount of data, but it was an interesting fact nonetheless.
+The table above shows some interesting information: it seems that as the occupancy rate increases, so the difference of the average occupancy rates between the two types of hosts increases. This trend of course cannot be validated using only this amount of data, but it was an interesting fact nonetheless.
 
 Finally, I looked at the whole distribution of the listings by the occupancy rate for these two categories of hosts:
 
@@ -131,7 +131,7 @@ Looking at the superhosts (in orange) we see that the number of listings they ha
 ### Predicting the price per night of an Airbnb Unit
 To train the model, I needed to make some feature selection and transformation. In summary, I used all relevant information about a listing like number of bedrooms, beds, bathrooms, how many guests it could accommodate, its location and some types of amenities it offered. I left out some features like the number of reviews or occupancy rates for various reasons. For example, the 90-day occupancy rate or number of reviews do not have any strong correlation with the price and if the listing is new these values will always be 0.
 
-I only used the last period of data (Q1 2023) because I was not interested in the evolution of the prices between of the last 12 months but rather focus on the current situation. As we saw with the pandemic, external events can have a lot of influence so prices may be affected by sudden changes.
+I only used the last period of data (Q1 2023) because I was not interested in the evolution of the prices between the last 12 months but rather focus on the current situation. As we saw with the pandemic, external events can have a lot of influence so prices may be affected by sudden changes.
 
 Finally, I also decided to only include listings that had a maximum price per night of $500 and to remove the outliers (0.7% of the total). Although this may be an important information, we might have not been able to explain these extreme prices with the data at hand. For example, an important factor missing here was the size of the listing. Also, my goal was to predict a listing that is somehow realistic in a normal context. I personally think that after a certain threshold of luxury you are free to dictate the price.
 
