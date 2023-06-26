@@ -27,7 +27,7 @@ Additionally, you need to unpack the zip file _../model/calendar.csv.gz_ in the 
 - _202303-calendar.csv_: Snapshot of Airbnb activity's data from Q1 2022 (obtained from the zip file: _calendar.csv.gz_)
 
 ## 3. Data
-The data was obtained from the website <a href=http://insideairbnb.com/get-the-data/>Inside Airbnb</a> and it is made of 4 CSV files - which contains listing information - and 1 CSV file with activity information. The listing files are the focus of the project while the calendar.csv was used just for a quality check.
+The data was obtained from the website <a href=http://insideairbnb.com/get-the-data/>Inside Airbnb</a> and it is made of four CSV files - which contains listing information - and one CSV file with activity information. The listing files are the focus of the project while the calendar.csv was only used once for a quality check.
 
 The listing's data contains, among others, these columns:
 - id
@@ -50,7 +50,7 @@ The data dictionary of the columns can be found [here](https://docs.google.com/s
 
 ### Limitations of the data
 Although there is relevant information available about the listings, there are still some features missing which may influence the analysis, especially when trying to predict the price, the occupancy or explaining causality for something interesting we may see in the data. This list is not exhaustive but gives an overview of these limitations:
-- This data is composed of quarterly snapshots, which means that numbers like availability rates can change over time.
+- This data is composed of quarterly snapshots, which means that numbers like availability rates may have changed over the time.
 - Information about state of the listing (brand new/used) is not available.
 - Size of the listing is not available.
 - Other subjective factors cannot be measured like decoration, natural light, overall attractiveness, etc.
@@ -60,10 +60,10 @@ Although there is relevant information available about the listings, there are s
 ## 4. Project Motivation
 This project was done as part of the curriculum of the [Udacity's Data Scientist Nanodegree](https://www.udacity.com/course/data-scientist-nanodegree--nd025). I decided to choose this analyis due to various reasons:
 - I am natural from Porto, Portugal and I am interested in Airbnb market of that region.
-- Since roughly 2015 the country has seen a dramatic increase in tourists and house prices. Then, in 2019 the COVID pandemic also hit the region hard and since 2022 things seem to be recovering.
+- Since around 2015, the country has seen a dramatic increase in tourists and real estate prices. Then, in 2019 the COVID pandemic hit the region hard and since 2022 things seem to be recovering.
 
 The __main goals__ of this project were to investigate:
-1. How the number of listings, prices and overnights was evolving after the pandemic.
+1. How the numbers of listings, prices and overnights were evolving after the pandemic.
 2. How the occupancy rate was generally distributed - for example whether superhosts in general had higher occupancy rates.
 3. Whether it was possible to create a predictive model for the price per night based on the available data. 
 
@@ -77,7 +77,7 @@ As one can see the distribution is so skewed to the right that the curve of the 
 You may find more analyses like this in the [Jupyter notebook](https://github.com/bruno-f7s/portfolio/blob/main/airbnb-porto-2023/airbnb-porto-2023-eda.ipynb). Below, you can find a summary of the relevant findings related to the initial business questions.
 
 ### Evolution of the number of listings, prices and occupancy rates
-The data I gathered goes from Q2 2022 until Q1 2023. This means 12 months of historical data that coincide with the "end" of the pandemic, when people could start to travel again with less restrictions. Looking at the number of Airbnb listings available for this time period, we can see that the hosts were also probably expecting an increase in tourists:
+The data I gathered reaches from Q2 2022 until Q1 2023. This means 12 months of historical data that coincide with the "end" of the pandemic, when people could start to travel again with less restrictions. Looking at the number of Airbnb listings available for this time period, we can see that the hosts were also probably expecting an increase in tourists:
 
 ![Number of listings by period](images/bar_listings_period.png)
 
@@ -101,7 +101,7 @@ In this case the median price per night decreased in the second half of the peri
 
 ![Price per night by number of bedrooms](https://github.com/bruno-f7s/portfolio/assets/68636948/41324cb3-f492-4156-a648-0265afca26d5)
 
-Here we can clearly see that has the number of bedrooms per listing increases, so does the median price. The drops at 10 and 14 bedrooms really caught my eye and I decided to analyze it further. It turned out that these two categories had a small amount of listings and referred to hostels or other shared accommodations, not an entire housing unit.
+Here we can clearly see that as the number of bedrooms per listing increases, so does the median price. The drops at 10 and 14 bedrooms caught my eye and I decided to analyze it further. It turned out that these two categories had a small amount of listings and referred to hostels or other shared accommodations, not an entire housing unit.
 
 Another aspect I investigated was the number of reviews vs the median price per unit (until $500), in this case just for the last quarter: 
 
@@ -116,11 +116,11 @@ I decided to put some focus on the occupancy rate because it is what any host st
 
 The graphic clearly shows a positive trend. Of course, one thing can lead to another, but this can still be a good assumption because (1) not every guest leaves a review and (2) the listings with higher reviews have been visited before and therefore new occupancies are not changing that numbers. This occupancy rate we are looking at is actually referring to the next number of days an unit is sold within the next 90 days.
 
-Another thing I thought it would be interesting to see, was if superhosts (which typically are a good reference for a guest) actually had higher occupancy rates than the normal hosts.
+Another thing I thought it might be worth looking at, was if superhosts (which typically are a good reference for a guest) actually had higher occupancy rates than the normal hosts.
 
 ![occupancy rate by host by period](https://github.com/bruno-f7s/portfolio/assets/68636948/1a242dea-fd3c-4677-b759-9577899b5c7c)
 
-The table above shows some interesting information: In the colder months were the occupancy rate in general is lower, the normal hosts had a higher average occupancy rate and in the higher season the superhosts actually had a higher average occupancy rate. It seems that has the occupancy rate increases, so the difference of the average occupancy rates between the two types of hosts increases. This trend of course cannot be validated using only this amount of data, but it was an interesting fact nonetheless.
+The table above shows some interesting information: In the colder months, when the occupancy rate is generally lower, the regular hosts had a higher average occupancy rate and in the higher season the superhosts actually had a higher average occupancy rate. It seems that as the occupancy rate increases, so the difference of the average occupancy rates between the two types of hosts increases. This trend of course cannot be validated using only this amount of data, but it was an interesting fact nonetheless.
 
 Finally, I looked at the whole distribution of the listings by the occupancy rate for these two categories of hosts:
 
@@ -129,19 +129,19 @@ Finally, I looked at the whole distribution of the listings by the occupancy rat
 Looking at the superhosts (in orange) we see that the number of listings they have is almost uniformly distributed accross all levels of occupancy rates. As an example, we can assume that a similar amount of listings from superhosts had a 20% and 80% occupancy rate. The picture changes for the non-superhosts (in blue): we can see that the majority of the non-superhosts' listings have lower occupancy rates, but we also see a big amount of them concentrated at around 100%. This is particularly interesting because there are some non-superhosts which are practically sold-out all the time.
 
 ### Predicting the price per night of an Airbnb Unit
-To train the model, I needed to make some feature selection and transformation. In summary, I used all relevant information about a listing like number of bedrooms, beds, bathrooms, how many guests it could accommodate, its location and some types of amenities it offered. I left out some features like the number of reviews or occupancy rates for various reasons. For example, the 90-day occupancy rate or number or reviews do not have any strong correlation with the price and if the listing is new these values will always be 0.
+To train the model, I needed to make some feature selection and transformation. In summary, I used all relevant information about a listing like number of bedrooms, beds, bathrooms, how many guests it could accommodate, its location and some types of amenities it offered. I left out some features like the number of reviews or occupancy rates for various reasons. For example, the 90-day occupancy rate or number of reviews do not have any strong correlation with the price and if the listing is new these values will always be 0.
 
-I only used the last period of data (Q1 2023) because I was not interested on the evolution of the prices between of the last 12 months but rather focus on the current situation. As we saw with the pandemic, external events can have a lot of influence so prices may be affected by sudden changes.
+I only used the last period of data (Q1 2023) because I was not interested in the evolution of the prices between of the last 12 months but rather focus on the current situation. As we saw with the pandemic, external events can have a lot of influence so prices may be affected by sudden changes.
 
-Finally, I also decided to only inclue listings that had a maximum price per night of $500 and removed the outliers (0.7% of the total). Although this may be important information, we might have not been able to explain these extreme prizes with the data at hand. For example, an important factor missing here was the size of the listing. Also, my goal was to predict a listing that is somehow realistic in a normal context. I personally think that after a certain threshold of luxury you are free to dictate the price.
+Finally, I also decided to only include listings that had a maximum price per night of $500 and to remove the outliers (0.7% of the total). Although this may be an important information, we might have not been able to explain these extreme prices with the data at hand. For example, an important factor missing here was the size of the listing. Also, my goal was to predict a listing that is somehow realistic in a normal context. I personally think that after a certain threshold of luxury you are free to dictate the price.
 
-Based on these assumptions I trained the model an achieved a root mean squared error of about $41, which is not great in this context (the standard deviation of this price distribution was around $60). This means that our prediction could have a deviation of $41 and still be considered "normal" when comparing to the rest. If we are looking at a $400 unit then this might not be a problem, but for cheaper listing this could make a big difference. However, looking at the median price distribution and the limitation in our dataset this is actually not completly wrong.
+Based on these assumptions I trained the model that achieved a root mean squared error (RMSE) of about $41, which is not great in this context (the standard deviation of this price distribution was around $60). This means that our prediction could have a deviation of $41 and still be considered "normal" when comparing to the rest. If we are looking at a $400 unit then this might not be a problem, but for cheaper listings this could make a big difference. However, looking at the median price distribution and the limitation in our dataset this is actually not completly wrong.
 
-I then used a listing for prediction with some features based on an actual listing I know, and the prediction was $63. By knowing well some of the details of this listing using some information not captued in this dataset, I would use the error to inflate the price a little. Probably not to the maximum but maybe halfway and rent the listing at around $85 per night.
+I then used a listing for prediction with some features based on an actual listing I know, and the prediction was $63. By knowing well some of the details of this listing using some information not captured in this dataset, I would use the error to inflate the price a little - probably not to the maximum but maybe halfway and put the appartment for rental at around $85 per night.
 
 ## 6. Acknowledgements
-- I would like mention the website <a href=http://insideairbnb.com/get-the-data/>Inside Airbnb</a> where I retrieved this that because it the team there an amazing job in keeping data up-to-date for numerous cities worldwide. Feel free to check them out if you want to do something similar for your hometown.
-- I would like to mention I got some writing inspirations from [Robert Chang](https://medium.com/@rchang) for this project.
+- I would like mention to the website <a href=http://insideairbnb.com/get-the-data/>Inside Airbnb</a> from where I retrieved this project's data, because the team there did an amazing job in keeping data up-to-date for numerous cities worldwide. Feel free to check the website in case you want to do a similar analysis for your hometown.
+- I would like to mention that I got some writing inspirations from [Robert Chang](https://medium.com/@rchang) for this project.
 
 ## 7. Author
 Bruno Fernandes - Data Analyst & Enthusiast - [LinkedIn](https://www.linkedin.com/in/b-fernandes/) - [Xing](xing.to/brunofernandes)
