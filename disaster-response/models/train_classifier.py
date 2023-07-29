@@ -17,10 +17,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.multioutput import MultiOutputClassifier
-from sklearn.multiclass import OneVsRestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics import classification_report, make_scorer, accuracy_score, recall_score, f1_score
@@ -144,9 +140,9 @@ def build_model():
     
     # define parameter grid
     param_grid = {
-        "gbc__estimator__n_estimators": [10],
-        "gbc__estimator__learning_rate": [0.1],
-        "gbc__estimator__max_depth": [3]
+        "gbc__estimator__n_estimators": [10, 50, 100],
+        "gbc__estimator__learning_rate": [0.1, 0.05, 0.01],
+        "gbc__estimator__max_depth": [3, 5, 7]
     }
 
     # Define the scoring metrics
@@ -156,7 +152,7 @@ def build_model():
         'f1': make_scorer(f1_score, average='weighted', zero_division=1)
     }
 
-    model = GridSearchCV(pipeline, param_grid=param_grid, cv=2, scoring=scoring, return_train_score=True, refit="f1", verbose=1)
+    model = GridSearchCV(pipeline, param_grid=param_grid, cv=5, scoring=scoring, return_train_score=True, refit="f1", verbose=1)
 
     return model
 
@@ -211,17 +207,17 @@ def build_final_model(best_params, X, y):
     """
 
     # extract parameters
-    max_depth = ""
-    n_estimators = ""
-    random_state = ""
-
-    for key, values in best_params.items():
-        if "max_depth" in key:
-            max_depth = values
-        elif "n_estimators" in key:
-            n_estimators = values
-        elif "random_state" in key:
-            random_state = values
+    def extract_best_params(best_params):
+        for key, values in best_params.items():
+            if "max_depth" in key:
+                max_depth = values
+            elif "n_estimators" in key:
+                n_estimators = values
+            elif "learning_rate" in key:
+                learning_rate = values  
+        return max_depth, n_estimators, learning_rate
+    
+    max_depth, n_estimators, learning_rate = extract_best_params(best_params)
 
     # build the model with extracted parameters
     final_model = Pipeline([
@@ -237,7 +233,7 @@ def build_final_model(best_params, X, y):
                 ('scale', StandardScaler())
             ]))
         ])),
-        ('gbc', MultiOutputClassifier(GradientBoostingClassifier(max_depth=max_depth, n_estimators=n_estimators, random_state=random_state)))
+        ('gbc', MultiOutputClassifier(GradientBoostingClassifier(max_depth=max_depth, n_estimators=n_estimators, learning_rate=learning_rate)))
     ])
 
     # fit the model using the whole dataset
