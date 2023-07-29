@@ -17,7 +17,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.multioutput import MultiOutputClassifier
-from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.multiclass import OneVsRestClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics import classification_report, make_scorer, accuracy_score, recall_score, f1_score
 
@@ -135,14 +136,18 @@ def build_model():
                 ('scale', StandardScaler())
             ]))
         ])),
-        ('gbc', MultiOutputClassifier(GradientBoostingClassifier()))
+        ('lr', MultiOutputClassifier(OneVsRestClassifier(LogisticRegression())))
     ])
     
     # define parameter grid
     param_grid = {
-        "gbc__estimator__n_estimators": [10, 50, 100],
-        "gbc__estimator__learning_rate": [0.1, 0.05, 0.01],
-        "gbc__estimator__max_depth": [3, 5, 7]
+        "lr__estimator__estimator__penalty": [10, 50, 100],
+        "lr__estimator__estimator__l1_ratio": [0, 0.5, 1],
+        "lr__estimator__estimator__C": [1, 5, 10],
+        "lr__estimator__estimator__solver": ['saga'],
+        "lr__estimator__estimator__multi_class": ['ovr'],
+        "lr__estimator__estimator__class_weight": ['balanced'],
+        "lr__estimator__estimator__n_jobs": [-1]
     }
 
     # Define the scoring metrics
@@ -205,19 +210,34 @@ def build_final_model(best_params, X, y):
     returns:
         final_model (class): the fitted final model using the whole dataset.      
     """
+    param_grid = {
+        "lr__estimator__estimator__penalty": [10, 50, 100],
+        "lr__estimator__estimator__l1_ratio": [0, 0.5, 1],
+        "lr__estimator__estimator__C": [1, 5, 10],
+        "lr__estimator__estimator__solver": ['saga'],
+        "lr__estimator__estimator__multi_class": ['ovr'],
+        "lr__estimator__estimator__class_weight": ['balanced'],
+        "lr__estimator__estimator__n_jobs": [-1]
+    }
 
     # extract parameters
     def extract_best_params(best_params):
         for key, values in best_params.items():
-            if "max_depth" in key:
-                max_depth = values
-            elif "n_estimators" in key:
-                n_estimators = values
-            elif "learning_rate" in key:
-                learning_rate = values  
-        return max_depth, n_estimators, learning_rate
+            if "penalty" in key:
+                penalty = values
+            elif "l1_ratio" in key:
+                l1_ratio = values
+            elif "estimator__C" in key:
+                C = values  
+            elif "solver" in key:
+                solver = values 
+            elif "multi_class" in key:
+                multi_class = values  
+            elif "class_weight" in key:
+                class_weight = values                                                   
+        return penalty, l1_ratio, C, solver, multi_class, class_weight
     
-    max_depth, n_estimators, learning_rate = extract_best_params(best_params)
+    penalty, l1_ratio, C, solver, multi_class, class_weight = extract_best_params(best_params)
 
     # build the model with extracted parameters
     final_model = Pipeline([
@@ -233,7 +253,7 @@ def build_final_model(best_params, X, y):
                 ('scale', StandardScaler())
             ]))
         ])),
-        ('gbc', MultiOutputClassifier(GradientBoostingClassifier(max_depth=max_depth, n_estimators=n_estimators, learning_rate=learning_rate)))
+        ('lr', MultiOutputClassifier(OneVsRestClassifier(LogisticRegression(penalty=penalty, l1_ratio=l1_ratio, C=C, solver=solver, multi_class=multi_class, class_weight=class_weight))))
     ])
 
     # fit the model using the whole dataset
