@@ -20,7 +20,15 @@ The goal of the project was not to create the best possible model but instead de
 ## 2. Requirements
 To run the code you need the following software:
 - Python v.3+
-- Suggestion: Anaconda v.4+ since it has already many of the needed packages
+- Packages:
+  - pandas
+  - numpy
+  - sklearn
+  - re
+  - nltk
+  - sqlite3
+  - joblib 
+- Suggestion: Anaconda v.4+ since it already includes the majority of the needed packages
 
 
 ## 3. How to run the code
@@ -88,7 +96,13 @@ The messages.csv file has 2 columns:
 ## 6 Web app
 The web app has an area where the use can enter a message for classification:
 
+![Screenshot of the web app](images/dr_app_screenshot_1.png "Web app screenshot 1")
+
 Below that area there are two graphics that give an overview about the data at hand.
+
+![Screenshot of the web app](images/dr_app_screenshot_2.png "Web app screenshot 2")
+
+![Screenshot of the web app](images/dr_app_screenshot_3.png "Web app screenshot 3")
 
 The performance of the model for the training set can be seen below:
 
@@ -174,3 +188,6 @@ infrastructure_related       0.13      0.35      0.19       527
           weighted avg       0.41      0.53      0.44     20713
            samples avg       0.29      0.55      0.35     20713
 ```
+## 7 Disclaimer
+- The data was provided by [Appen](https://appen.com/).
+- The HTML code parts were provided by [Udacity](https://www.udacity.com).
