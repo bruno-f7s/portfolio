@@ -141,9 +141,8 @@ def build_model():
     
     # define parameter grid
     param_grid = {
-        "lr__estimator__estimator__penalty": ["elasticnet"],
-        "lr__estimator__estimator__l1_ratio": [0, 0.5, 1],
-        "lr__estimator__estimator__C": [1, 5, 10],
+        "lr__estimator__estimator__C": [1, 3, 5, 10],
+        "lr__estimator__estimator__max_iter": [1000],
         "lr__estimator__estimator__solver": ['saga'],
         "lr__estimator__estimator__multi_class": ['ovr'],
         "lr__estimator__estimator__class_weight": ['balanced'],
@@ -214,12 +213,10 @@ def build_final_model(best_params, X, y):
     # extract parameters
     def extract_best_params(best_params):
         for key, values in best_params.items():
-            if "penalty" in key:
-                penalty = values
-            elif "l1_ratio" in key:
-                l1_ratio = values
-            elif "estimator__C" in key:
-                C = values  
+            if "estimator__C" in key:
+                C = values
+            elif "max_iter" in key:
+                max_iter = values                    
             elif "solver" in key:
                 solver = values 
             elif "multi_class" in key:
@@ -228,7 +225,7 @@ def build_final_model(best_params, X, y):
                 class_weight = values                                                   
         return penalty, l1_ratio, C, solver, multi_class, class_weight
     
-    penalty, l1_ratio, C, solver, multi_class, class_weight = extract_best_params(best_params)
+    C, max_iter, solver, multi_class, class_weight = extract_best_params(best_params)
 
     # build the model with extracted parameters
     final_model = Pipeline([
@@ -244,7 +241,7 @@ def build_final_model(best_params, X, y):
                 ('scale', StandardScaler())
             ]))
         ])),
-        ('lr', MultiOutputClassifier(OneVsRestClassifier(LogisticRegression(penalty=penalty, l1_ratio=l1_ratio, C=C, solver=solver, multi_class=multi_class, class_weight=class_weight))))
+        ('lr', MultiOutputClassifier(OneVsRestClassifier(LogisticRegression(C=C, max_iter=max_iter, solver=solver, multi_class=multi_class, class_weight=class_weight))))
     ])
 
     # fit the model using the whole dataset
