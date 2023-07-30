@@ -141,7 +141,7 @@ def build_model():
     
     # define parameter grid
     param_grid = {
-        "lr__estimator__estimator__penalty": [10, 50, 100],
+        "lr__estimator__estimator__penalty": ["elasticnet"],
         "lr__estimator__estimator__l1_ratio": [0, 0.5, 1],
         "lr__estimator__estimator__C": [1, 5, 10],
         "lr__estimator__estimator__solver": ['saga'],
@@ -210,16 +210,7 @@ def build_final_model(best_params, X, y):
     returns:
         final_model (class): the fitted final model using the whole dataset.      
     """
-    param_grid = {
-        "lr__estimator__estimator__penalty": [10, 50, 100],
-        "lr__estimator__estimator__l1_ratio": [0, 0.5, 1],
-        "lr__estimator__estimator__C": [1, 5, 10],
-        "lr__estimator__estimator__solver": ['saga'],
-        "lr__estimator__estimator__multi_class": ['ovr'],
-        "lr__estimator__estimator__class_weight": ['balanced'],
-        "lr__estimator__estimator__n_jobs": [-1]
-    }
-
+    
     # extract parameters
     def extract_best_params(best_params):
         for key, values in best_params.items():
