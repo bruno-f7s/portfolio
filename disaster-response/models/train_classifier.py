@@ -223,7 +223,7 @@ def build_final_model(best_params, X, y):
                 multi_class = values  
             elif "class_weight" in key:
                 class_weight = values                                                   
-        return penalty, l1_ratio, C, solver, multi_class, class_weight
+        return C, solver, multi_class, class_weight
     
     C, max_iter, solver, multi_class, class_weight = extract_best_params(best_params)
 
