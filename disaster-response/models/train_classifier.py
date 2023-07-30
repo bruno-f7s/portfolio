@@ -152,7 +152,7 @@ def build_model():
 
     # Define the scoring metrics
     scoring = {
-        'accuracy': make_scorer(accuracy_score),
+        'accuracy': make_scorer(accuracy_score, average='weighted', zero_division=1),
         'recall': make_scorer(recall_score, average='weighted', zero_division=1),
         'f1': make_scorer(f1_score, average='weighted', zero_division=1)
     }
@@ -210,7 +210,7 @@ def build_final_model(best_params, X, y):
     returns:
         final_model (class): the fitted final model using the whole dataset.      
     """
-    
+
     # extract parameters
     def extract_best_params(best_params):
         for key, values in best_params.items():
@@ -272,7 +272,7 @@ def main():
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
         X, y, category_names = load_data(database_filepath)
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
         
         print('Building model...')
         model = build_model()
