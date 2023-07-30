@@ -151,7 +151,7 @@ def build_model():
 
     # Define the scoring metrics
     scoring = {
-        'accuracy': make_scorer(accuracy_score, average='weighted', zero_division=1),
+        'accuracy': make_scorer(accuracy_score),
         'recall': make_scorer(recall_score, average='weighted', zero_division=1),
         'f1': make_scorer(f1_score, average='weighted', zero_division=1)
     }
