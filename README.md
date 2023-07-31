@@ -14,3 +14,10 @@ Examining the Airbnb accommodation market from June 2022 to March 2023, I analyz
 I wrote a [Medium post](https://medium.com/@brunoipfernandes/post-pandemic-outlook-airbnb-accomodations-in-porto-portugal-58f27207a718) about it, which provides a more contextual analysis of the results.
 
 __Keywords__: Exploratory Data Analysis (EDA) - Machine Learning - Communication
+
+## [Disaster Reponse Web App](https://github.com/bruno-f7s/portfolio/tree/main/disaster-response)
+In this project, I used labelled data provided by [Appen](https://appen.com/) to create a NLP Pipeline for a model that is able to predict 36 labels for text messages. The labels are related to categories regarding natural disasters and the idea is to categorize a text message for this kind of natural disasters or specific request needs. The model ought to be deployed onto a Flask app, with the intent of making the model available to end-users through a web app (in this case it can only be accessed using browser on a local machine). 
+The focus on the project was not to achieve a high performance but rather on the technical aspects of setting up such an environment and its needed processes.
+
+__Keywords__: Flask App - Multi-Label Classification - NLP
+
