@@ -10,9 +10,9 @@ Table of Contents:
 
 ---
 ## 1. Project Introduction
-This project was developed as part of the [Udacity's Data Scientist Nanodegree program]( https://www.udacity.com/course/data-scientist-nanodegree--nd025) and consists of a machine learning multi-label classification problem. The objective was to train a model that can predict the labels for text messages and deploy it in a simple web app so that other users are able to interact with the model. 
+This project was developed as part of the [Udacity's Data Scientist Nanodegree program]( https://www.udacity.com/course/data-scientist-nanodegree--nd025) and consists of a machine learning multi-label classification problem. The objective was to train a model that can predict the labels for text messages and deploy it onto a simple web app so other users can interact with the model. 
 
-For understanding of the context of the problem, let us assume that a certain natural disaster occurs in a certain region and that people affected in that region start to post messages online in a specific social media platform. These messages could then be classified live using the model, which could more quickly be intercepted by a specific helper organization with the aim of knowing which kind of help would be need or which kind of disaster had happened. Possible classification categories can be _food_, _water_, _earthquake_, etc.
+For better understanding of the context of the problem here is an example: let us assume that a certain natural disaster occurs in a certain region and that people affected in that region start to post messages online in a specific social media platform. These messages could then be classified live using the model, which could more quickly be intercepted by a specific helper organization to indentify which kind of help would be needed or what kind of disaster had happened. Possible classification categories can be _food_, _water_, _earthquake_, etc.
 
 The goal of the project was not to create the best possible model but instead develop and apply the needed skills to create a data preparation pipeline, a machine learning pipeline as well as a web interface.
 
@@ -33,10 +33,10 @@ To run the code you need the following software:
 
 ## 3. How to run the code
 To interact with this code follow these steps:
-1. Download the complete project or fork this repository
-2. (Not necessary if the `data\DisasterResponse.db` is already available). To run the ETL pipeline that cleans, processes and stores the data, run the following command inside the `data` directory:`python process_data.py messages.csv categories.csv DisasterResponse.db`
-3. (Not necessary if the `model\dr_classifier.pkl` is already available). To run the ML pipeline that trains and deploys the model, run the following command inside the `models` directory:`python train_classifier.py ..\data\DisasterResponse.db dr_classifier.pkl`.
-4. To start the app run the following command inside `app` directory: `python run.py`.
+1. Download the complete project or fork this repository to your local computer.
+2. (Not necessary if the `data\DisasterResponse.db` is already available). To run the ETL pipeline that cleans, processes and stores the data, change the directory to `data` and run this command: `python process_data.py messages.csv categories.csv DisasterResponse.db`
+3. (Not necessary if the `model\dr_classifier.pkl` is already available). To run the ML pipeline that trains and deploys the model, change the directory to `models` and run this command: `python train_classifier.py ..\data\DisasterResponse.db dr_classifier.pkl`.
+4. To start the app run the following command inside the `app` directory: `python run.py`.
 5. Open this link on your browser: [http://127.0.0.1:3001/](http://127.0.0.1:3001/).
 
 
@@ -44,9 +44,9 @@ To interact with this code follow these steps:
 ### 4.1. Web App
 | File Name      | Description |
 | ----------- | ----------- |
-| go.html      | HTML file provided by Udacity for this project responsible to pass URL parameters as message for classification. |
-| master.html    | HTML file provided by Udacity for this project with the full HTML structure of the web app. |
-| run.py    | Script used to start up the web app and take care of the back-end. |
+| go.html      | HTML file that takes care of the URL parameters for the messages (provided by Udacity).  |
+| master.html    | HTML file with the full HTML structure of the web app (provided by Udacity). |
+| run.py    | Script used to fire up the web app and take care of the back-end. |
 
 
 ### 4.2. Data
@@ -61,15 +61,15 @@ To interact with this code follow these steps:
 ### 4.3. Model
 | File Name      | Description |
 | ----------- | ----------- |
-| train_classifier.py      | Script with a ML pipeline to create the best fitting model for the data based on a algorithm and multiple parameters. It deploys the model as a pickel file.|
+| train_classifier.py      | Script with a ML pipeline to create the best fitting model based on an algorithm and multiple parameters. It deploys the model as a pickel file.|
 | dr_classifier.pkl      | Pickel file with the fitted model. |
 
 
 ### 4.4. Extra
 | File Name      | Description |
 | ----------- | ----------- |
-| data-preparation.ipynb      | Jupyter notebook with the loading and preparation used as an assistance to try and run the code of process_data.py. NOT NEEDED to run the web app.|
-| ml-pipeline-preparation.ipynb     | Jupyter notebook with the ml-pipeline used as an assistance to try out different algorithms and parameters to chose the best algorithm for the ml-pipeline of train_classifier.py. NOT NEEDED to run the web app. |
+| data-preparation.ipynb      | Jupyter notebook with the loading and preparation steps. The file was used as an assistance to try and run the code of process_data.py and it is NOT NEEDED to run the web app.|
+| ml-pipeline-preparation.ipynb     | Jupyter notebook with the ml-pipeline. The file was used as an assistance to try out different options and to chose the best algorithm for the ml-pipeline of train_classifier.py. It is NOT NEEDED to run the web app. |
 
 
 ## 5. Data
@@ -85,13 +85,13 @@ The messages.csv file has 4 columns:
 ### 5.2. File: categories.csv
 The messages.csv file has 2 columns:
 - __id__: the message's id.
-- __categories__: a string column with all the labels and its value (1 or 0) for the current message, example: "related-1;request-0;offer-0;aid_related-0;...".
+- __categories__: a string column with all the labels and their values (1 or 0) for the current message, example: "related-1;request-0;offer-0;aid_related-0;...".
 
 ### 5.3. Data Limitations
 - The dataset has 26216 rows and 36 labels. Although the number of rows is of a considerable size there are many different labels.
-- The labels _ related_ and _ child_alone_ only include one of the categories (1 or 0) and therefore do not hold any prediction power.
+- The labels _related_ and _child_alone_ only include one of the categories (1 or 0) and therefore do not hold any prediction power.
 - Many labels like _aid_centers_ (2.1%), _tools_ (1.1%), _ shops_ (0.8%), etc. are extremely imbalanced. This will be a challenge for the algorithms considering the amount of data available and the complexity of the classification problem. 
-- Without the two labels _ related_ and _ child_alone_, 11431 messages (57% of total) do not have any other label present. This means that these rows will always have 0 prediction on any of the present labels. This data was excluded from the training process to try compensating for the imbalanced labels and try some overfitting on said labels.
+- Without the two labels _ related_ and _ child_alone_, 11431 messages (57% of total) do not have any other label present. This means that these rows will always miss a predictive label. This data was excluded from the training process to try compensating for the imbalanced labels and try some overfitting on said labels.
 
 ## 6 Web app
 The web app has an area where the use can enter a message for classification:
@@ -191,8 +191,7 @@ infrastructure_related       0.21      0.32      0.26       505
            samples avg       0.67      0.76      0.58     24799
 ```
 
-__Observation__: We can see that the overall accuracy is high but when we look at the other metrics, we see that precision and recall are not always that optimal, especially for the most imbalanced categories. This was somewhat expected and therefore the model was tuned for the best f1-score possible to try balancing out the metrics.
-Although this is not a perfect model, looking at the data limitations and the scope of the project I was satisfied with it and pushed it to “production”.
+__Observation__: We can see that the overall accuracy is high but when we look at the other metrics, we see that precision and recall are not very good for the most imbalanced categories. This was somewhat expected and therefore the model was tuned for the best f1-score possible to try balancing out the metrics.
 
 
 ## 7 Disclaimer
