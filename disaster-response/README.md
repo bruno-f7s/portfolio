@@ -35,7 +35,7 @@ To run the code you need the following software:
 To interact with this code follow these steps (for Windows OS):
 1. Download the complete project or fork this repository to your local computer.
 2. (Not necessary if the `data\DisasterResponse.db` is already available). To run the ETL pipeline that cleans, processes and stores the data, change the directory to `data` and run this command: `python process_data.py messages.csv categories.csv DisasterResponse.db`
-3. (Not necessary if the `model\dr_classifier.pkl` is already available). To run the ML pipeline that trains and deploys the model, change the directory to `models` and run this command: `python train_classifier.py ..\data\DisasterResponse.db dr_classifier.pkl` for MAC OS: `python train_classifier.py ../data/DisasterResponse.db dr_classifier.pkl`.
+3. (Not necessary if the `model\dr_classifier.pkl` is already available). To run the ML pipeline that trains and deploys the model, change the directory to `models` and run this command: `python train_classifier.py ..\data\DisasterResponse.db dr_classifier.pkl`. For __macOS__: `python train_classifier.py ../data/DisasterResponse.db dr_classifier.pkl`.
 4. To start the app run the following command inside the `app` directory: `python run.py`.
 5. Open this link on your browser: [http://127.0.0.1:3001/](http://127.0.0.1:3001/).
 
