@@ -41,7 +41,7 @@ def load_data(database_filepath):
     """
     
     # set up connection and query
-    database_nm = database_filepath.split("\\")[-1:][0].replace(".db", "")
+    database_nm = database_filepath.split("\\")[-1:][0].replace(".db", "").split("/")[-1:][0].replace(".db", "")
     conn = sqlite3.connect(database_filepath)
     query = "SELECT * FROM {}".format(database_nm)
 
