@@ -10,10 +10,9 @@ from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
 from flask import Flask
-from flask import render_template, request, jsonify
+from flask import render_template, request
 from plotly.graph_objs import Bar
 import joblib
-from sqlalchemy import create_engine
 
 
 app = Flask(__name__)
@@ -80,7 +79,7 @@ df = df.drop(["sum"], axis=1)
 df = df.drop(["related","child_alone"], axis=1)
 
 # load model
-model = joblib.load("../models/disaster_response_classifier.pkl")
+model = joblib.load("../models/dr_classifier.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
