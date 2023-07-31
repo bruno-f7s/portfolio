@@ -104,90 +104,97 @@ Below that area there are two graphics that give an overview about the data at h
 
 ![Screenshot of the web app](images/dr_app_screenshot_3.png "Web app screenshot 3")
 
-The performance of the model for the training set can be seen below:
+The performance of the model for the __training set__ can be seen below:
 
 __Accuracy__ per label:
 ```
-request                   0.803520
-offer                     0.962546
-aid_related               0.626484
-medical_help              0.634875
-medical_products          0.706508
-search_and_rescue         0.770774
-security                  0.813754
-military                  0.774048
-water                     0.634056
-food                      0.646541
-shelter                   0.610929
-clothing                  0.858985
-money                     0.803111
-missing_people            0.881907
-refugees                  0.750307
-death                     0.696275
-other_aid                 0.567131
-infrastructure_related    0.670487
-transport                 0.715718
-buildings                 0.702415
-electricity               0.835039
-tools                     0.940442
-hospitals                 0.891731
-shops                     0.946582
-aid_centers               0.883135
-other_infrastructure      0.732296
-weather_related           0.641220
-floods                    0.659844
-storm                     0.727384
-fire                      0.885591
-earthquake                0.746828
-cold                      0.831764
-other_weather             0.692796
-direct_report             0.753377
+related                   0.798347
+request                   0.871710
+offer                     0.989320
+aid_related               0.764654
+medical_help              0.895613
+medical_products          0.932740
+search_and_rescue         0.947616
+security                  0.961983
+military                  0.964781
+water                     0.957915
+food                      0.944056
+shelter                   0.931977
+clothing                  0.985633
+money                     0.966434
+missing_people            0.974698
+refugees                  0.949523
+death                     0.958805
+other_aid                 0.795296
+infrastructure_related    0.880229
+transport                 0.920407
+buildings                 0.945327
+electricity               0.974444
+tools                     0.986777
+hospitals                 0.977877
+shops                     0.990973
+aid_centers               0.975334
+other_infrastructure      0.912524
+weather_related           0.868404
+floods                    0.933249
+storm                     0.939733
+fire                      0.986523
+earthquake                0.964526
+cold                      0.977877
+other_weather             0.909727
+direct_report             0.821360
 ```
 
 __Precision__, __Recall__ and __F1-Score__ per label:
 ```
                         precision    recall  f1-score   support
 
-               request       0.65      0.78      0.71      1481
-                 offer       0.03      0.10      0.04        41
-           aid_related       0.78      0.68      0.73      3597
-          medical_help       0.16      0.37      0.23       701
-      medical_products       0.10      0.29      0.14       420
-     search_and_rescue       0.05      0.20      0.08       235
-              security       0.04      0.19      0.07       166
-              military       0.10      0.43      0.16       254
-                 water       0.13      0.43      0.20       514
-                  food       0.29      0.56      0.38       963
-               shelter       0.19      0.47      0.27       741
-              clothing       0.07      0.34      0.12       135
-                 money       0.05      0.23      0.09       195
-        missing_people       0.02      0.12      0.04        98
-              refugees       0.07      0.29      0.11       273
-                 death       0.09      0.32      0.14       387
-             other_aid       0.26      0.48      0.34      1122
-infrastructure_related       0.13      0.35      0.19       527
-             transport       0.10      0.33      0.16       389
-             buildings       0.10      0.30      0.15       432
-           electricity       0.05      0.21      0.09       181
-                 tools       0.02      0.08      0.03        52
-             hospitals       0.01      0.07      0.02        81
-                 shops       0.00      0.03      0.01        37
-           aid_centers       0.02      0.09      0.03        99
-  other_infrastructure       0.10      0.32      0.15       360
-       weather_related       0.65      0.60      0.63      2437
-                floods       0.24      0.56      0.33       740
-                 storm       0.31      0.51      0.39       834
-                  fire       0.02      0.10      0.03        77
-            earthquake       0.33      0.48      0.39       820
-                  cold       0.07      0.27      0.11       183
-         other_weather       0.12      0.38      0.18       446
-         direct_report       0.62      0.73      0.67      1695
+               related       0.90      0.83      0.86      5992
+               request       0.60      0.73      0.66      1332
+                 offer       0.04      0.06      0.05        36
+           aid_related       0.71      0.71      0.71      3219
+          medical_help       0.39      0.52      0.45       638
+      medical_products       0.39      0.46      0.42       418
+     search_and_rescue       0.16      0.28      0.20       192
+              security       0.09      0.12      0.11       144
+              military       0.44      0.49      0.46       245
+                 water       0.64      0.76      0.70       500
+                  food       0.72      0.81      0.76       878
+               shelter       0.60      0.73      0.66       705
+              clothing       0.51      0.57      0.54       115
+                 money       0.32      0.51      0.39       170
+        missing_people       0.18      0.34      0.24        92
+              refugees       0.32      0.46      0.38       260
+                 death       0.55      0.67      0.60       366
+             other_aid       0.31      0.46      0.37      1033
+infrastructure_related       0.21      0.32      0.26       505
+             transport       0.25      0.36      0.29       362
+             buildings       0.46      0.60      0.52       392
+           electricity       0.41      0.45      0.43       168
+                 tools       0.06      0.08      0.07        48
+             hospitals       0.15      0.26      0.19        78
+                 shops       0.04      0.07      0.05        28
+           aid_centers       0.14      0.17      0.15       103
+  other_infrastructure       0.18      0.28      0.21       341
+       weather_related       0.76      0.77      0.76      2163
+                floods       0.57      0.65      0.61       623
+                 storm       0.66      0.75      0.70       738
+                  fire       0.36      0.35      0.35        83
+            earthquake       0.79      0.82      0.80       702
+                  cold       0.49      0.56      0.52       171
+         other_weather       0.24      0.34      0.28       415
+         direct_report       0.54      0.65      0.59      1544
 
-             micro avg       0.26      0.53      0.35     20713
-             macro avg       0.18      0.34      0.22     20713
-          weighted avg       0.41      0.53      0.44     20713
-           samples avg       0.29      0.55      0.35     20713
+             micro avg       0.60      0.68      0.64     24799
+             macro avg       0.41      0.48      0.44     24799
+          weighted avg       0.64      0.68      0.65     24799
+           samples avg       0.67      0.76      0.58     24799
 ```
+
+__Observation__: We can see that the overall accuracy is high but when we look at the other metrics, we see that precision and recall are not always that optimal, especially for the most imbalanced categories. This was somewhat expected and therefore the model was tuned for the best f1-score possible to try balancing out the metrics.
+Although this is not a perfect model, looking at the data limitations and the scope of the project I was satisfied with it and pushed it to “production”.
+
+
 ## 7 Disclaimer
 - The data was provided by [Appen](https://appen.com/).
 - The HTML code parts were provided by [Udacity](https://www.udacity.com).
