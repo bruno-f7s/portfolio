@@ -141,9 +141,9 @@ def build_model():
     
     # define parameter grid
     param_grid = {
-        "lr__estimator__estimator__C": [1, 3, 5, 10],
-        "lr__estimator__estimator__max_iter": [1000],
-        "lr__estimator__estimator__solver": ['saga'],
+        "lr__estimator__estimator__C": [1, 5, 10],
+        "lr__estimator__estimator__max_iter": [5000],
+        "lr__estimator__estimator__solver": ['saga', 'lbfgs'],
         "lr__estimator__estimator__multi_class": ['ovr'],
         "lr__estimator__estimator__class_weight": ['balanced'],
         "lr__estimator__estimator__n_jobs": [-1]
@@ -223,7 +223,7 @@ def build_final_model(best_params, X, y):
                 multi_class = values  
             elif "class_weight" in key:
                 class_weight = values                                                   
-        return C, solver, multi_class, class_weight
+        return C, max_iter, solver, multi_class, class_weight
     
     C, max_iter, solver, multi_class, class_weight = extract_best_params(best_params)
 
@@ -241,7 +241,7 @@ def build_final_model(best_params, X, y):
                 ('scale', StandardScaler())
             ]))
         ])),
-        ('lr', MultiOutputClassifier(OneVsRestClassifier(LogisticRegression(C=C, max_iter=max_iter, solver=solver, multi_class=multi_class, class_weight=class_weight))))
+        ('lr', MultiOutputClassifier(OneVsRestClassifier(LogisticRegression(C=C, max_iter=max_iter, solver=solver, multi_class=multi_class, class_weight=class_weight, n_jobs=-1))))
     ])
 
     # fit the model using the whole dataset
