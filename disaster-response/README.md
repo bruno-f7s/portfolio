@@ -1,6 +1,6 @@
 # Disaster Response Classification
 Table of Contents:
-1. Introduction
+1. Project introduction
 2. Requirements
 3. How to run the code
 4. File descriptions
@@ -9,7 +9,7 @@ Table of Contents:
 7. Disclaimer
 
 ---
-## 1. Project Introduction
+## 1. Project introduction
 This project was developed as part of the [Udacity's Data Scientist Nanodegree program]( https://www.udacity.com/course/data-scientist-nanodegree--nd025) and consists of a machine learning multi-label classification problem. The objective was to train a model that can predict the labels for text messages and deploy it onto a simple web app so other users can interact with the model. 
 
 For better understanding of the context of the problem here is an example: let us assume that a certain natural disaster occurs in a certain region and that people affected in that region start to post messages online in a specific social media platform. These messages could then be classified live using the model, which could more quickly be intercepted by a specific helper organization to indentify which kind of help would be needed or what kind of disaster had happened. Possible classification categories can be _food_, _water_, _earthquake_, etc.
@@ -69,7 +69,7 @@ To interact with this code follow these steps:
 | File Name      | Description |
 | ----------- | ----------- |
 | data-preparation.ipynb      | Jupyter notebook with the loading and preparation steps. The file was used as an assistance to try and run the code of process_data.py and it is NOT NEEDED to run the web app.|
-| ml-pipeline-preparation.ipynb     | Jupyter notebook with the ml-pipeline. The file was used as an assistance to try out different options and to chose the best algorithm for the ml-pipeline of train_classifier.py. It is NOT NEEDED to run the web app. |
+| ml-pipeline-preparation.ipynb     | Jupyter notebook with the ml-pipeline. The file was used as an assistance to try out different options and to choose the best algorithm for the ml-pipeline of train_classifier.py. It is NOT NEEDED to run the web app. |
 
 
 ## 5. Data
