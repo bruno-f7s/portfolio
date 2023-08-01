@@ -42,8 +42,8 @@ def load_data(database_filepath):
     
     # set up connection and query
     database_nm = database_filepath.replace(".db", "")
-    conn = sqlite3.connect("..\\data\\"+database_filepath)
-    query = "SELECT * FROM {}".format(database_nm)
+    conn = sqlite3.connect(database_filepath)
+    query = "SELECT * FROM '{}'".format(database_nm)
 
     # load the data into a pandas df
     df = pd.read_sql_query(query, conn)
