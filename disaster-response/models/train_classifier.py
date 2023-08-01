@@ -32,7 +32,7 @@ def load_data(database_filepath):
     Additionally it removes any labelling columns which only have one category (1/0), since it will not have any prediction power.
 
     Parameters:
-        database_filepath (str): The file path to the SQL lite database name. Example: "../data/your_database.db".
+        database_filepath (str): The file path to the SQL lite database name. Example: "your_database.db". It is expected that the database is located in the "data" folder.
 
     Returns:
         X (dataframe): The independent variables or features. It is expected to be a single feature with text information.
@@ -41,8 +41,8 @@ def load_data(database_filepath):
     """
     
     # set up connection and query
-    database_nm = database_filepath.split("\\")[-1:][0].replace(".db", "").split("/")[-1:][0].replace(".db", "")
-    conn = sqlite3.connect(database_filepath)
+    database_nm = database_filepath.replace(".db", "")
+    conn = sqlite3.connect("..\\data\\"+database_filepath)
     query = "SELECT * FROM {}".format(database_nm)
 
     # load the data into a pandas df
