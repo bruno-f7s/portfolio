@@ -90,8 +90,8 @@ def save_data(df, database_filename):
         df (pandas dataframe): final dataset to be saved.
         database_filename (str): the file name for the SQL lite database. Example: your_db_name.
     """
-    engine = create_engine(f"sqlite:///{database_filename}.db")
-    df.to_sql(database_filename, engine, index=False)
+    engine = create_engine(f"sqlite:///{database_filename}")
+    df.to_sql(database_filename.replace(".db",""), engine, index=False)
 
 
 def main():
