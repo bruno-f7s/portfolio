@@ -1,7 +1,10 @@
 # custom bans
 *.pkl
 202303-calendar.csv
-arvarto-customer-segmentation/data/.*csv
+Udacity_AZDIAS_052018.csv
+Udacity_CUSTOMERS_052018.csv
+Udacity_MAILOUT_052018_TEST.csv
+Udacity_MAILOUT_052018_TRAIN.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
