@@ -1,6 +1,7 @@
 # custom bans
 *.pkl
 202303-calendar.csv
+arvarto-customer-segmentation/data/.*csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
