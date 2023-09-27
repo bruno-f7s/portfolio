@@ -5,6 +5,10 @@ Udacity_AZDIAS_052018.csv
 Udacity_CUSTOMERS_052018.csv
 Udacity_MAILOUT_052018_TEST.csv
 Udacity_MAILOUT_052018_TRAIN.csv
+Cleaned_Udacity_AZDIAS_052018.csv
+Cleaned_Udacity_CUSTOMERS_052018.csv
+Cleaned_Udacity_MAILOUT_052018_TEST.csv
+Cleaned_Udacity_MAILOUT_052018_TRAIN.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
