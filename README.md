@@ -22,7 +22,7 @@ The focus on the project was not to achieve a high performance, but rather to fo
 __Keywords__: Flask App - Multi-Label Classification - NLP
 
 
-## [Customer Segementation Analysis](https://github.com/bruno-f7s/portfolio/tree/main/arvarto-customer-segmentation)
+## [Customer Segmentation Analysis](https://github.com/bruno-f7s/portfolio/tree/main/arvarto-customer-segmentation)
 Using real-world data provided by [Arvato Financial Solutions](https://finance.arvato.com/) the goals of this project were:
 - to use unsupervised learning techniques such as dimensionality reduction and clustering to perform a customer segmentation and understand which groups of customers should be prioritized.
 - to potentially use a semi-supervised learning approach in order to create a classification model that could predict new customers.
