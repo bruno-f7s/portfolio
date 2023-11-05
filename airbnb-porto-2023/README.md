@@ -144,4 +144,4 @@ I then used a listing for prediction with some features based on an actual listi
 - I would like to mention that I got some writing inspirations from [Robert Chang](https://medium.com/@rchang) for this project.
 
 ## 7. Author
-Bruno Fernandes - Data Analyst & Enthusiast - [LinkedIn](https://www.linkedin.com/in/b-fernandes/) - [Xing](xing.to/brunofernandes)
+Bruno Fernandes - Data Enthusiast - [LinkedIn](https://www.linkedin.com/in/b-fernandes/) - [Xing](xing.to/brunofernandes)

@@ -1,4 +1,4 @@
-# Customer Segmentation Report (Arvarto Financial Services)
+# Customer Segmentation Report (Arvato Financial Services)
 
 Table of Contents:
 1. Requirements
@@ -22,7 +22,7 @@ To run the code you need the following software:
     - `pip install skopt`  
 
 
-__Note__: When you are reading most likely data files will not exist anymore due to the terms & conditions agreed with Arvarto Financial Services for this project. If you want to access this data, please contact either Udacity or Arvarto Financial Services directly.
+__Note__: When you are reading most likely data files will not exist anymore due to the terms & conditions agreed with Arvato Financial Services for this project. If you want to access this data, please contact either Udacity or Arvato Financial Services directly.
 
 ## 2. Run the code
 1. Fork the repository into your own computer
@@ -36,15 +36,15 @@ __Note__: When you are reading most likely data files will not exist anymore due
 5. (Only after the previous step is completed) Open the file _03-customer-prediction.ipynb_ and run all cells
 
 __Notes__: 
-- When you are reading this it is likely that these files do not exist anymore due to the terms & conditions agreed with Arvarto Financial Services for this project. If you want to access this data, please contact either Udacity or Arvarto Financial Services directly.
+- When you are reading this it is likely that these files do not exist anymore due to the terms & conditions agreed with Arvato Financial Services for this project. If you want to access this data, please contact either Udacity or Arvato Financial Services directly.
 - The Jupyter notebooks 2 and 3 may take some days to run depending on your CPU capacities. This was developed in the course of several days and due to the complexity of the data some tests needed to be run in order to make the best decisions.
 
 ## 3. File Descriptions
 ### 3.1 Data-related
 - _../data/Udacity_AZDIAS_052018.7z_: Real-word data of a subset of the German population containing 366 features.
-- _../data/Udacity_CUSTOMERS_052018.7z_: Real-word data of customers' data from Arvarto Financial Services containing the same features as the population data + 3 additional columns that can be removed.
-- _../data/Udacity_MAILOUT_052018_TRAIN.7z_: Real-word labeled data from Arvarto Financial Services containing the same features as the population data + target variable.
-- _../data/Udacity_MAILOUT_052018_TEST.7z_: Real-word unlabeled  data from Arvarto Financial Services containing the same features as the population data that can be used to create predictions.
+- _../data/Udacity_CUSTOMERS_052018.7z_: Real-word data of customers' data from Arvato Financial Services containing the same features as the population data + 3 additional columns that can be removed.
+- _../data/Udacity_MAILOUT_052018_TRAIN.7z_: Real-word labeled data from Arvato Financial Services containing the same features as the population data + target variable.
+- _../data/Udacity_MAILOUT_052018_TEST.7z_: Real-word unlabeled  data from Arvato Financial Services containing the same features as the population data that can be used to create predictions.
 - _../data-dictionary/DIAS Attributes - Values 2017.xlsx_: Data dictionary with a description as well as the possible values for each features (some features may be missing here or are written differently).
 - _../data-dictionary/DIAS Information Levels - Attributes 2017.xlsx_: Further information about to which information level (category) the features belong.
 
@@ -72,7 +72,7 @@ The __main goals__ of this project were to:
 2. Use supervised learning techniques - possibly including the information gained in the customer segmentation part - and to create a model that is able to predict who may become a new customer.
 
 __Summarized analysis__
-- I wrote this [Medium post](https://www.medium.com/) about how to employ the techniques I used for customer segmentation, so other professionals can find an interesting data-driven approach for them to try out.
+- I wrote this [Medium post](https://medium.com/@brunoipfernandes/how-to-perform-data-driven-customer-segmentation-9becb18dc528) about how to employ the techniques I used for customer segmentation, so other professionals can try out this interesting data-driven approach.
 - For the handling of the missing values, I employed a simplistic approach by treating the majority of the missing values as "unknown" values. This approach may or may not be the most suitable one, but I personally had the feeling that the data was not very pronounced in terms of its predicting or clustering capabilities. It would be ideal to have a domain expert at hand that could give more insight into this missing information and possibly also help engineering new features.
 - The customer segmentation was the most enjoyable part for me because I think that the approach I employed worked well enough. The clusters were not that clearly separable, but still it was possible to derive some relatable information from the clusters' analysis.
 - The customer prediction part did not produce the desired results, as I was expecting to include the clusters and the dimensionality reduction models from the previous section into the classification model. However, it turned out that including this information would only highly contribute negatively to the performance of the models. I then used all the data and employed different approaches to try and deal with the imbalanced data, but none produced good results for the positive class. Although the ROC-AUC or accuracy values were relatively good, the F1 score was very bad. 
@@ -122,4 +122,4 @@ __Personal note__: I am not sure if this data was sufficient or had a high quali
     3. Classify samples based on this new threshold. 
 
 ## 8. Author
-Bruno Fernandes - Data Bustler - [LinkedIn](https://www.linkedin.com/in/b-fernandes/) - [Xing](xing.to/brunofernandes)
+Bruno Fernandes - Data Enthusiast - [LinkedIn](https://www.linkedin.com/in/b-fernandes/) - [Xing](xing.to/brunofernandes)

@@ -11,7 +11,7 @@ If you find any mistake, have a suggestion or simply want to get in touch, reach
 ## [Analysis of Airbnb accomodation's data for Porto, Portugal](https://github.com/bruno-f7s/portfolio/tree/main/airbnb-porto-2023)
 Examining the Airbnb accommodation market from June 2022 to March 2023, I analyzed the evolution of occupancy rates, prices, and listing numbers, with the aim of determining the market's post-pandemic state. Additionally, employing machine learning, I tried to predict the prices of an apartment unit.
 
-I wrote a [Medium post](https://medium.com/@brunoipfernandes/post-pandemic-outlook-airbnb-accomodations-in-porto-portugal-58f27207a718) about it, which provides a more contextual analysis of the results.
+I wrote this [Medium post](https://medium.com/@brunoipfernandes/post-pandemic-outlook-airbnb-accomodations-in-porto-portugal-58f27207a718) about it, which provides a more contextual analysis of the results.
 
 __Keywords__: Exploratory Data Analysis (EDA) - Machine Learning - Communication
 
@@ -21,3 +21,12 @@ The focus on the project was not to achieve a high performance, but rather to fo
 
 __Keywords__: Flask App - Multi-Label Classification - NLP
 
+
+## [Customer Segementation Analysis](https://github.com/bruno-f7s/portfolio/tree/main/arvarto-customer-segmentation)
+Using real-world data provided by [Arvato Financial Solutions](https://finance.arvato.com/) the goals of this project were:
+- to use unsupervised learning techniques such as dimensionality reduction and clustering to perform a customer segmentation and understand which groups of customers should be prioritized.
+- to potentially use a semi-supervised learning approach in order to create a classification model that could predict new customers.
+
+I wrote this [Medium post](https://medium.com/@brunoipfernandes/how-to-perform-data-driven-customer-segmentation-9becb18dc528) that explains my approach in customer segmentation.
+
+__Keywords__: Dimensionality Reduction - Clustering - Semi-Supervised Learning
