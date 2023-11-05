@@ -5,7 +5,6 @@ I like to code and work with various technologies like Spark, Python and SQL for
 
 If you find any mistake, have a suggestion or simply want to get in touch, reach out to me on [LinkedIn](https://www.linkedin.com/in/b-fernandes/) or on [Xing](xing.to/brunofernandes).
 
----
 
 # Projects
 ## [Analysis of Airbnb accomodation's data for Porto, Portugal](https://github.com/bruno-f7s/portfolio/tree/main/airbnb-porto-2023)
@@ -15,12 +14,14 @@ I wrote this [Medium post](https://medium.com/@brunoipfernandes/post-pandemic-ou
 
 __Keywords__: Exploratory Data Analysis (EDA) - Machine Learning - Communication
 
+
 ## [Disaster Reponse Web App](https://github.com/bruno-f7s/portfolio/tree/main/disaster-response)
 In this project, I used labelled data provided by [Appen](https://appen.com/) to create a NLP Pipeline for a model that is able to predict 36 labels for text messages. The labels are related to categories regarding natural disasters and the idea is to categorize a text message for this kind of natural disasters like fire or storm, or specific requests like for water, clothing, etc. The model ought to be deployed onto a Flask app, with the intent of making the model available to end-users through a web app (it can only be accessed using a browser on a local machine). 
 The focus on the project was not to achieve a high performance, but rather to focus on the technical aspects of setting up the ETL and ML pipelines as well as on deploying the model.
 
 __Keywords__: Flask App - Multi-Label Classification - NLP
 
+ 
 
 ## [Customer Segmentation Analysis](https://github.com/bruno-f7s/portfolio/tree/main/arvarto-customer-segmentation)
 Using real-world data provided by [Arvato Financial Solutions](https://finance.arvato.com/) the goals of this project were:
